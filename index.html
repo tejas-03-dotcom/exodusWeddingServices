@@ -1,185 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exodus Wedding Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exodus Wedding Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Exodus Wedding</a>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Exodus Wedding</a>
+
+      <!-- Hamburger Menu -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80" alt="Elegant Wedding Setup" class="hero-slide" />
+    <div class="hero-content">
+      <h1>Create Your Dream Wedding</h1>
+      <p>Where every moment becomes a cherished memory</p>
+      <a href="#contact" class="btn">Plan Your Wedding</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="Wedding Planning" class="service-image">
+        <div class="service-content">
+          <h3>Wedding Planning</h3>
+          <p>Comprehensive wedding planning services tailored to your vision.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-slide active">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80" alt="Elegant Wedding Setup" class="hero-slide">
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" alt="Decor & Design" class="service-image">
+        <div class="service-content">
+          <h3>Decor & Design</h3>
+          <p>Transform your venue into a magical wedding setting.</p>
         </div>
-        <div class="hero-content">
-            <h1>Create Your Dream Wedding</h1>
-            <p>Where every moment becomes a cherished memory</p>
-            <a href="#contact" class="btn">Plan Your Wedding</a>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80" alt="Photography" class="service-image">
+        <div class="service-content">
+          <h3>Photography</h3>
+          <p>Capture your precious moments in stunning detail.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="Wedding Planning" class="service-image">
-                <div class="service-content">
-                    <h3>Wedding Planning</h3>
-                    <p>Comprehensive wedding planning services tailored to your vision.</p>
-                </div>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" alt="Decor & Design" class="service-image">
-                <div class="service-content">
-                    <h3>Decor & Design</h3>
-                    <p>Transform your venue into a magical wedding setting.</p>
-                </div>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80" alt="Photography" class="service-image">
-                <div class="service-content">
-                    <h3>Photography</h3>
-                    <p>Capture your precious moments in stunning detail.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Packages Section -->
+  <section id="packages">
+    <h2 class="section-title">Our Packages</h2>
+    <div class="package-grid">
+      <!-- Classic Package -->
+      <div class="package-card">
+        <h3 class="package-title">Classic</h3>
+        <div class="package-price">₹10 Lakhs</div>
+        <ul class="package-features">
+          <li>Up to 100 Guests</li>
+          <li>Complete Wedding Planning</li>
+          <li>Elegant Venue Decoration</li>
+          <li>Full Day Photography & Videography</li>
+          <li>Bridal & Family Makeup</li>
+          <li>Premium Floral Arrangements</li>
+          <li>Catering Service</li>
+          <li>Basic Sound System</li>
+          <li>Luxury Car for Bride & Groom</li>
+          <li>Valet Parking</li>
+        </ul>
+        <a href="#contact" class="btn">Book Now</a>
+      </div>
 
-    <!-- Packages Section -->
-    <section id="packages">
-        <h2 class="section-title">Our Packages</h2>
-        <div class="package-grid">
-            <!-- Classic Package -->
-            <div class="package-card">
-                <h3 class="package-title">Classic</h3>
-                <div class="package-price">₹10 Lakhs</div>
-                <ul class="package-features">
-                    <li>Up to 100 Guests</li>
-                    <li>Complete Wedding Planning</li>
-                    <li>Elegant Venue Decoration</li>
-                    <li>Full Day Photography & Videography</li>
-                    <li>Bridal & Family Makeup</li>
-                    <li>Premium Floral Arrangements</li>
-                    <li>Catering Service</li>
-                    <li>Basic Sound System</li>
-                    <li>Luxury Car for Bride & Groom</li>
-                    <li>Valet Parking</li>
-                </ul>
-                <a href="#contact" class="btn">Book Now</a>
-            </div>
+      <!-- Grand Package -->
+      <div class="package-card featured">
+        <span class="featured-tag">Most Popular</span>
+        <h3 class="package-title">Grand</h3>
+        <div class="package-price">₹25 Lakhs</div>
+        <ul class="package-features">
+          <li>Up to 500 Guests</li>
+          <li>Luxury Wedding Planning</li>
+          <li>Premium Theme Decoration</li>
+          <li>Multiple Day Photo & Video Coverage</li>
+          <li>Celebrity Makeup Artist</li>
+          <li>Exclusive Floral Design</li>
+          <li>Premium Catering Service</li>
+          <li>Live Entertainment</li>
+          <li>Professional Sound & Lighting</li>
+          <li>Grand Horse Entry for Groom</li>
+          <li>2 Luxury Cars for Family</li>
+          <li>Premium Guest Pick-up Service</li>
+          <li>Valet & Security Service</li>
+          <li>Custom Wedding Invitations</li>
+        </ul>
+        <a href="#contact" class="btn">Book Now</a>
+      </div>
 
-            <!-- Grand Package -->
-            <div class="package-card featured">
-                <span class="featured-tag">Most Popular</span>
-                <h3 class="package-title">Grand</h3>
-                <div class="package-price">₹25 Lakhs</div>
-                <ul class="package-features">
-                    <li>Up to 500 Guests</li>
-                    <li>Luxury Wedding Planning</li>
-                    <li>Premium Theme Decoration</li>
-                    <li>Multiple Day Photo & Video Coverage</li>
-                    <li>Celebrity Makeup Artist</li>
-                    <li>Exclusive Floral Design</li>
-                    <li>Premium Catering Service</li>
-                    <li>Live Entertainment</li>
-                    <li>Professional Sound & Lighting</li>
-                    <li>Grand Horse Entry for Groom</li>
-                    <li>2 Luxury Cars for Family</li>
-                    <li>Premium Guest Pick-up Service</li>
-                    <li>Valet & Security Service</li>
-                    <li>Custom Wedding Invitations</li>
-                </ul>
-                <a href="#contact" class="btn">Book Now</a>
-            </div>
+      <!-- Royal Package -->
+      <div class="package-card">
+        <h3 class="package-title">Royal</h3>
+        <div class="package-price">₹40 Lakhs</div>
+        <ul class="package-features">
+          <li>Up to 1000 Guests</li>
+          <li>Exclusive Event Planning</li>
+          <li>Custom Theme & Luxury Decor</li>
+          <li>Destination Wedding Management</li>
+          <li>International Photography Team</li>
+          <li>Celebrity Styling Team</li>
+          <li>Exotic Floral Arrangements</li>
+          <li>Premium Catering Experience</li>
+          <li>International Artists Performance</li>
+          <li>Royal Horse Procession with Decorations</li>
+          <li>Fleet of 5 Luxury Cars</li>
+          <li>VIP Guest Transportation Service</li>
+          <li>Helicopter Entry Option</li>
+          <li>Complete Event Security</li>
+          <li>Designer Invitations</li>
+        </ul>
+        <a href="#contact" class="btn">Book Now</a>
+      </div>
+    </div>
+  </section>
 
-            <!-- Royal Package -->
-            <div class="package-card">
-                <h3 class="package-title">Royal</h3>
-                <div class="package-price">₹40 Lakhs</div>
-                <ul class="package-features">
-                    <li>Up to 1000 Guests</li>
-                    <li>Exclusive Event Planning</li>
-                    <li>Custom Theme & Luxury Decor</li>
-                    <li>Destination Wedding Management</li>
-                    <li>International Photography Team</li>
-                    <li>Celebrity Styling Team</li>
-                    <li>Exotic Floral Arrangements</li>
-                    <li>Premium Catering Experience</li>
-                    <li>International Artists Performance</li>
-                    <li>Royal Horse Procession with Decorations</li>
-                    <li>Fleet of 5 Luxury Cars</li>
-                    <li>VIP Guest Transportation Service</li>
-                    <li>Helicopter Entry Option</li>
-                    <li>Complete Event Security</li>
-                    <li>Designer Invitations</li>
-                </ul>
-                <a href="#contact" class="btn">Book Now</a>
-            </div>
-        </div>
-    </section>
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2 class="section-title">Wedding Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Wedding Ceremony" class="gallery-image">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="Wedding Decor" class="gallery-image">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" alt="Wedding Reception" class="gallery-image">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80" alt="Bridal Portrait" class="gallery-image">
+      </div>
+    </div>
+  </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <h2 class="section-title">Wedding Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Wedding Ceremony" class="gallery-image">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="Wedding Decor" class="gallery-image">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" alt="Wedding Reception" class="gallery-image">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80" alt="Bridal Portrait" class="gallery-image">
-            </div>
-        </div>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <form class="contact-form">
+      <div class="form-group">
+        <input type="text" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" placeholder="Phone Number" required>
+      </div>
+      <div class="form-group">
+        <textarea rows="5" placeholder="Tell us about your wedding plans" required></textarea>
+      </div>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Contact Us</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <input type="text" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" placeholder="Phone Number" required>
-            </div>
-            <div class="form-group">
-                <textarea rows="5" placeholder="Tell us about your wedding plans" required></textarea>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Exodus Wedding Services. All rights reserved.</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Exodus Wedding Services. All rights reserved.</p>
-    </footer>
+  <!-- JS for Mobile Menu -->
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
 
-    <script src="script.js"></script>
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
+  </script>
 </body>
 </html>
