@@ -1,284 +1,837 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tejas Wedding Creations</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exodus Wedding Services</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("zpEq7ZhYYo23XlIFz");
+    })();
+  </script>
+
   <style>
-    :root{
-      --blush:#F7D7D0;
-      --deep-blush:#F2BEB7;
-      --gold:#C99B58;
-      --accent:#8B5E3C;
-      --text:#3b2f2f;
-      --muted:#6b5a58;
-      --max-width:1100px;
+    /* Base Styles */
+    html {
+      scroll-behavior: smooth;
     }
-    *{box-sizing:border-box}
-    body{font-family:Poppins, system-ui, -apple-system, sans-serif; color:var(--text);margin:0;background:linear-gradient(180deg, #fff 0%, #fff 60%, var(--blush) 100%);}
-    a{color:var(--accent);text-decoration:none}
-    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
+    
+    * {
+      scroll-margin-top: 90px;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #f9f7f7 0%, #ffffff 100%);
+    }
 
-    /* Header */
-    header{background:transparent;padding:22px 0;}
-    .nav{display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{width:58px;height:58px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--deep-blush));display:flex;align-items:center;justify-content:center;color:white;font-family:Playfair Display;font-weight:700;font-size:20px;box-shadow:0 6px 18px rgba(139,94,60,0.12)}
-    .nav-links{display:flex;gap:18px;align-items:center}
-    .nav-links a{font-weight:600}
+    /* Enhanced Navigation */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #d4af37;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-brand:hover {
+      transform: scale(1.05);
+    }
+    
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-menu a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-menu a:hover {
+      color: #d4af37;
+      background: rgba(212, 175, 55, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #d4af37;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    .nav-menu a:hover::after {
+      width: 80%;
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #333;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
 
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:42px 0}
-    .hero-left h1{font-family:Playfair Display;font-size:44px;margin:0 0 12px}
-    .sub{color:var(--muted);margin-bottom:18px}
-    .cta-row{display:flex;gap:12px}
-    .btn{background:var(--gold);border:none;padding:12px 18px;border-radius:10px;color:white;font-weight:600;cursor:pointer}
-    .outline{background:transparent;border:2px solid rgba(139,94,60,0.14);color:var(--accent)}
-    .hero-right{background:linear-gradient(180deg,rgba(242,190,183,0.14),rgba(249,239,237,0.6));border-radius:14px;padding:18px}
-    .hero-card{background:white;border-radius:10px;padding:14px;box-shadow:0 8px 30px rgba(139,94,60,0.06)}
+    /* Fixed Hero Section - Like index.html */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    
+    .hero-slide {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    
+    .slide.active {
+      opacity: 1;
+    }
+    
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      z-index: 2;
+      width: 90%;
+      max-width: 800px;
+    }
+    
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+    
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+    
+    .btn {
+      display: inline-block;
+      background: #d4af37;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      background: #b9912c;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
 
-    /* Services */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .service{background:white;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(139,94,60,0.04)}
-    .service h4{margin:6px 0}
+    /* Enhanced Section Layout */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #d4af37;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(135deg, #d4af37, #b8941f);
+      border-radius: 2px;
+    }
 
-    /* Gallery */
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
-    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer}
+    /* Enhanced Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #d4af37, #b8941f);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .service-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover .service-image {
+      transform: scale(1.05);
+    }
+    
+    .service-content {
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .service-content h3 {
+      color: #d4af37;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      transition: color 0.3s ease;
+    }
+    
+    .service-card:hover .service-content h3 {
+      color: #b8941f;
+    }
 
-    /* Packages */
-    .packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
-    .card{background:white;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(139,94,60,0.04)}
-    .price{font-family:Playfair Display;font-size:22px;color:var(--accent)}
+    /* Enhanced Packages Section */
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    
+    .package-card {
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      position: relative;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .package-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+      border-color: #d4af37;
+    }
+    
+    .package-card.featured {
+      border: 2px solid #d4af37;
+      background: linear-gradient(135deg, #fff, #fef9e7);
+      transform: scale(1.05);
+    }
+    
+    .package-card.featured:hover {
+      transform: scale(1.05) translateY(-10px);
+    }
+    
+    .featured-tag {
+      background: linear-gradient(135deg, #d4af37, #b8941f);
+      color: #fff;
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      border-radius: 25px;
+      position: absolute;
+      top: -15px;
+      right: 2rem;
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+    
+    .package-title {
+      font-family: 'Playfair Display', serif;
+      color: #d4af37;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    
+    .package-price {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    
+    .package-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+    }
+    
+    .package-features li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .package-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #d4af37;
+      font-weight: bold;
+    }
 
-    /* Testimonials */
-    .testi{background:linear-gradient(180deg,rgba(199,155,88,0.06),rgba(247,215,208,0.04));padding:18px;border-radius:12px;position:relative}
-    .testi p{font-style:italic;color:var(--muted);margin:10px 0}
+    /* Enhanced Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .gallery-grid img {
+      width: 100%;
+      height: 300px;
+      border-radius: 15px;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
 
-    /* Contact */
-    form{display:grid;gap:10px}
-    input,textarea,select{padding:10px;border-radius:10px;border:1px solid #eee}
-    .whatsapp{position:fixed;right:16px;bottom:16px;background:linear-gradient(135deg,var(--gold),var(--accent));padding:14px;border-radius:999px;color:white;display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(139,94,60,0.15)}
+    /* Enhanced About Section */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      background: #fff;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    
+    .about-content img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+    
+    .about-content:hover img {
+      transform: scale(1.02);
+    }
+    
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .about-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #d4af37;
+      margin-bottom: 1.5rem;
+    }
 
-    /* Footer */
-    footer{padding:24px 0;text-align:center;color:var(--muted)}
+    /* Enhanced Contact Section */
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #f9f9f9;
+    }
+    
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #d4af37;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    }
+    
+    .contact-form button {
+      background: #d4af37;
+      color: #fff;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .contact-form button:hover {
+      background: #b9912c;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    #status-message {
+      text-align: center;
+      font-weight: 600;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
 
-    /* Responsive */
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      .hero-right{order:2}
+    /* Enhanced Footer */
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 4rem;
+    }
+    
+    .footer-contacts {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-contacts a {
+      color: #fff;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .footer-contacts a:hover {
+      color: #d4af37;
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1000;
+    }
+    
+    .whatsapp-float img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-float img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      
+      .nav-menu.active {
+        display: flex;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .package-card.featured {
+        transform: none;
+      }
+      
+      .package-card.featured:hover {
+        transform: translateY(-10px);
+      }
+      
+      .about-content {
+        padding: 2rem;
+      }
+      
+      .contact-form {
+        padding: 2rem;
+      }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo">T</div>
-        <div>
-          <div style="font-family:Playfair Display;font-weight:700">Tejas Wedding Creations</div>
-          <div style="font-size:12px;color:var(--muted)">Blush Pink & Gold • Elegant Weddings</div>
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-brand">Exodus Wedding</a>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#packages">Packages</a>
-        <a href="#contact">Contact</a>
-        <a class="btn" href="#contact">Book Now</a>
-      </nav>
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-left">
-        <h1>We craft beautiful, stress-free weddings</h1>
-        <div class="sub">Full-service planning, elegant decor, photography & styling — tailored to your dreams.</div>
-        <div class="cta-row">
-          <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
-          <button class="btn outline">View Packages</button>
-        </div>
-        <div style="margin-top:22px;color:var(--muted);font-size:14px">Serving: Mumbai • Pune • Goa</div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-card">
-          <strong>Featured Service</strong>
-          <div style="font-size:14px;color:var(--muted);margin:6px 0">Custom Venue Decoration — Theme creation, floral work, lighting & setup.</div>
-          <div style="display:flex;gap:8px;margin-top:12px">
-            <img src="1499857497_IMG_1692.webp" alt="venue" style="width:96px;height:72px;object-fit:cover;border-radius:8px">
-            <div>
-              <div style="font-weight:600">Starting at <span class="price">₹45,000</span></div>
-              <div style="color:var(--muted);font-size:13px;margin-top:6px">Includes consultation, design board & on-site team.</div>
-            </div>
-          </div>
+  <!-- Hero Section - Fixed like index.html -->
+  <section class="hero" id="home">
+    <img src="https://c1.wallpaperflare.com/preview/89/851/708/ring-hastmelap-wedding-marriage-indian-hindu.jpg" alt="Elegant Wedding Setup" class="hero-slide active">
+    <div class="hero-content">
+      <h1>Create Your Dream Wedding</h1>
+      <p>Where every moment becomes a cherished memory</p>
+      <a href="#contact" class="btn">Plan Your Wedding</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://imgs.search.brave.com/pLwtCJ7bCYuOGHtX0qft3RRfH_DWUZo1_uYIBTrqWgE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEyLzE0LzI0Lzk4/LzM2MF9GXzEyMTQy/NDk4NzVfd1FBTUhW/ZTNNS0FDbWkyajh1/TWZJSWlFS0xGbkpm/UTcuanBn" alt="Wedding Planning" class="service-image">
+        <div class="service-content">
+          <h3>Wedding Planning</h3>
+          <p>Comprehensive wedding planning services tailored to your vision.</p>
         </div>
       </div>
-    </section>
 
-    <section id="services">
-      <h2 style="font-family:Playfair Display">Our Services</h2>
-      <div class="grid" style="margin-top:12px">
-        <div class="service">
-          <h4>Wedding Planning</h4>
-          <div class="sub">Full timeline, vendor management, on-day coordination.</div>
-        </div>
-        <div class="service">
-          <h4>Venue Decoration</h4>
-          <div class="sub">Floral arches, stage design, lighting & drapes.</div>
-        </div>
-        <div class="service">
-          <h4>Photography</h4>
-          <div class="sub">Cinematic films, candid & portrait photography packages.</div>
-        </div>
-        <div class="service">
-          <h4>Makeup & Styling</h4>
-          <div class="sub">Bridal looks, trial sessions, grooming for family.</div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622" alt="Decor & Design" class="service-image">
+        <div class="service-content">
+          <h3>Decor & Design</h3>
+          <p>Transform your venue into a magical wedding setting.</p>
         </div>
       </div>
-    </section>
 
-    <section id="gallery" style="margin-top:28px">
-      <h2 style="font-family:Playfair Display">Gallery</h2>
-      <div class="gallery" style="margin-top:12px">
-        <img src="images/car.webp" alt="g1" onclick="openLightbox(this.src)">
-        <img src="decoration1.jpg?q=80&w=800&auto=format&fit=crop" alt="g2" onclick="openLightbox(this.src)">
-        <img src="https://images.unsplash.com/photo-1541318553193-5b6f199a5b5a?q=80&w=800&auto=format&fit=crop" alt="g3" onclick="openLightbox(this.src)">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" alt="g4" onclick="openLightbox(this.src)">
-      </div>
-    </section>
-
-    <section id="packages" style="margin-top:28px">
-      <h2 style="font-family:Playfair Display">Packages</h2>
-      <div class="packages" style="margin-top:12px">
-        <div class="card">
-          <h3>Basic</h3>
-          <div class="price">₹25,000</div>
-          <ul style="padding-left:18px;color:var(--muted)"><li>Venue styling (limited)</li><li>Day-of coordination</li><li>Up to 40 guests</li></ul>
-          <button class="btn" style="margin-top:10px" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Quote</button>
-        </div>
-        <div class="card">
-          <h3>Premium</h3>
-          <div class="price">₹75,000</div>
-          <ul style="padding-left:18px;color:var(--muted)"><li>Full styling & decor</li><li>Vendor coordination</li><li>Up to 150 guests</li></ul>
-          <button class="btn" style="margin-top:10px" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Quote</button>
-        </div>
-        <div class="card">
-          <h3>Royal</h3>
-          <div class="price">Custom</div>
-          <ul style="padding-left:18px;color:var(--muted)"><li>End-to-end planning</li><li>Design customisation</li><li>Unlimited guests</li></ul>
-          <button class="btn" style="margin-top:10px" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Quote</button>
+      <div class="service-card">
+        <img src="https://imgs.search.brave.com/7Qh58u5GpAl49R1hvLYr88ViOlONfrI4hgErakd6xnA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZS53ZWRtZWdvb2Qu/Y29tL3Jlc2l6ZWQv/NDUwWC91cGxvYWRz/L3Byb2plY3QvMTg5/NzYvMTQ5OTg1NzQ5/N19JTUdfMTY5Mi5q/cGc" alt="Photography" class="service-image">
+        <div class="service-content">
+          <h3>Photography</h3>
+          <p>Capture your precious moments in stunning detail.</p>
         </div>
       </div>
-    </section>
 
-    <section style="margin-top:28px">
-      <h2 style="font-family:Playfair Display">Testimonials</h2>
-      <div class="testi" style="margin-top:12px">
-        <div id="testiText">
-          <p>“They turned our venue into a dream — everything was perfect. The team was calm, creative and timely.”</p>
-          <div style="font-weight:700">— Neha & Rohan</div>
-        </div>
-        <div style="position:absolute;right:12px;bottom:12px;display:flex;gap:8px">
-          <button class="outline" onclick="prevTesti()">◀</button>
-          <button class="outline" onclick="nextTesti()">▶</button>
+      <div class="service-card">
+        <img src="https://imgs.search.brave.com/32i2WL-Dcuwkywr0RYpils6dsV7YwA4PJj0cYp-4l6E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA2LzE5LzY2LzU5/LzM2MF9GXzYxOTY2/NTk5Nl9TeFVOcjlK/aVFnUGhqMWhWS1Rq/Q3hVRWlURHZoZXhG/ZC5qcGc" alt="Rented Car Service" class="service-image">
+        <div class="service-content">
+          <h3>Rented Car Service</h3>
+          <p>Luxury cars for the bride, groom, and family—ensuring elegant travel for your big day.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" style="margin-top:28px">
-      <h2 style="font-family:Playfair Display">Get in touch</h2>
-      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:12px">
-        <div>
-          <form id="contactForm" onsubmit="handleSubmit(event)">
-            <input type="text" name="name" placeholder="Your name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="tel" name="phone" placeholder="Phone (optional)">
-            <select name="service">
-              <option value="Planning">Wedding Planning</option>
-              <option value="Decoration">Venue Decoration</option>
-              <option value="Photography">Photography</option>
-              <option value="Makeup">Makeup & Styling</option>
-            </select>
-            <textarea name="message" rows="4" placeholder="Tell us about your idea" required></textarea>
-            <div style="display:flex;gap:8px;align-items:center">
-              <button class="btn" type="submit">Send Request</button>
-              <small style="color:var(--muted)">We reply within 48 hours</small>
-            </div>
-          </form>
-        </div>
-        <div style="background:white;padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(139,94,60,0.04)">
-          <h4>Contact Details</h4>
-          <div style="color:var(--muted);margin:8px 0">Phone: <a href="tel:+911234567890">+91 12345 67890</a></div>
-          <div style="color:var(--muted);margin:8px 0">Email: <a href="mailto:hello@tejasweddings.com">hello@tejasweddings.com</a></div>
-          <div style="color:var(--muted);margin:8px 0">Location: Mumbai, India</div>
-          <div style="margin-top:12px">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30293.123456789!2d72.8!3d19.07!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA0JzAwLjAiTiA3MsKwNDcnMDEuMCJF!5e0!3m2!1sen!2sin!4v0000000000000" width="100%" height="160" style="border:0;border-radius:10px" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-        </div>
+  <!-- Packages -->
+  <section id="packages">
+    <h2 class="section-title">Our Packages</h2>
+    <div class="package-grid">
+      <div class="package-card">
+        <h3 class="package-title">Classic</h3>
+        <div class="package-price">₹10 Lakhs</div>
+        <ul class="package-features">
+          <li>Up to 100 Guests</li>
+          <li>Complete Wedding Planning</li>
+          <li>Elegant Venue Decoration</li>
+          <li>Full Day Photography & Videography</li>
+          <li>Luxury Car for Bride & Groom</li>
+        </ul>
+        <a href="#contact" class="btn">Book Now</a>
       </div>
-    </section>
 
-    <footer style="margin-top:36px">
-      <div style="text-align:center;color:var(--muted)">© <strong>Tejas Wedding Creations</strong> • Crafted with care</div>
-    </footer>
-  </main>
+      <div class="package-card featured">
+        <span class="featured-tag">Most Popular</span>
+        <h3 class="package-title">Grand</h3>
+        <div class="package-price">₹25 Lakhs</div>
+        <ul class="package-features">
+          <li>Up to 500 Guests</li>
+          <li>Premium Theme Decoration</li>
+          <li>Horse Riding</li>
+          <li>Live Entertainment</li>
+          <li>Valet & Security Service</li>
+        </ul>
+        <a href="#contact" class="btn">Book Now</a>
+      </div>
 
-  <a class="whatsapp" href="https://wa.me/911234567890?text=Hi%20Tejas%20Wedding%20Creations%2C%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="filter:brightness(1.1)"><path d="M20.52 3.48A11.873 11.873 0 0012 0C5.373 0 0 5.373 0 12c0 2.106.55 4.08 1.597 5.837L0 24l6.43-1.665A11.873 11.873 0 0012 24c6.627 0 12-5.373 12-12 0-3.196-1.213-6.177-3.48-8.52z" fill="white"/><path d="M17.176 14.122l-1.14.536c-.153.072-.35.032-.463-.098l-.939-1.11c-.109-.13-.31-.183-.48-.124l-1.09.344c-.16.05-.34.02-.463-.079l-1.03-.873c-.127-.108-.288-.173-.457-.173h-.014c-.222 0-.43.098-.568.268l-.743 1.016c-.132.18-.364.248-.56.167-1.27-.45-2.31-1.493-2.77-2.764-.115-.332.04-.697.349-.88l1.09-.59c.22-.12.295-.4.177-.62l-.63-1.18c-.12-.228-.015-.52.235-.645 1.096-.568 2.31-.884 3.556-.884 4.418 0 8 3.582 8 8 0 1.08-.242 2.118-.7 3.064-.095.216-.33.346-.564.3z" fill="#1bd741"/></svg>
-    <span style="font-weight:600">Chat on WhatsApp</span>
+      <div class="package-card">
+        <h3 class="package-title">Royal</h3>
+        <div class="package-price">₹40 Lakhs</div>
+        <ul class="package-features">
+          <li>Up to 1000 Guests</li>
+          <li>Destination Wedding Management</li>
+          <li>International Photography Team</li>
+          <li>Horse Riding</li>
+          <li>Complete Event Security</li>
+          <li>Pick-drop Service</li>
+        </ul>
+        <a href="#contact" class="btn">Book Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2 class="section-title">Gallery</h2>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Gallery 1">
+      <img src="https://images.unsplash.com/photo-1522673607200-164d3b6c2a52" alt="Gallery 2">
+      <img src="https://images.unsplash.com/photo-1519744346367-3fbb0b984693" alt="Gallery 3">
+      <img src="https://images.unsplash.com/photo-1535467721445-df8411e77d1d" alt="Gallery 4">
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="section-title">About Exodus Wedding</h2>
+    <div class="about-content">
+      <img src="https://images.unsplash.com/photo-1530023367847-a683933f4172?auto=format&fit=crop&w=1000&q=80" alt="About Exodus Wedding">
+      <div class="about-text">
+        <h3>We Turn Dreams Into Timeless Celebrations</h3>
+        <p>
+          At <strong>Exodus Wedding Services</strong>, we believe every love story deserves a
+          grand celebration. With years of experience in luxury event planning,
+          we curate elegant, personalized, and stress-free weddings across India and abroad.
+        </p>
+        <p>
+          From <a href="#services" style="color:#d4af37; text-decoration:none;">planning and décor</a> to 
+          <a href="#packages" style="color:#d4af37; text-decoration:none;">customized packages</a>, 
+          we handle every detail so you can cherish every moment.
+        </p>
+        <a href="#contact" class="btn">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <form id="contact-form" class="contact-form">
+      <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+      <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+      <div class="form-group"><input type="tel" name="phone" placeholder="Phone Number" required></div>
+      <div class="form-group"><textarea rows="5" name="message" placeholder="Tell us about your wedding plans" required></textarea></div>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <p id="status-message"></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-contacts">
+      <a href="tel:+919404021597"><i class="fa-solid fa-phone"></i></a>
+      <a href="https://www.instagram.com/exoduswedding" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/exoduswedding" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+      <a href="mailto:solution.analyst21@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2025 Exodus Wedding Services. All rights reserved.</p>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/919404021597?text=Hi%20I%20want%20to%20plan%20my%20wedding" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
   </a>
 
-  <!-- Lightbox Modal -->
-  <div id="lightbox" style="position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:18px">
-    <img id="lightboxImg" src="" style="max-width:95%;max-height:85%;border-radius:8px;box-shadow:0 20px 50px rgba(0,0,0,0.6)">
-  </div>
-
   <script>
-    function openLightbox(src){
-      const lb = document.getElementById('lightbox');
-      document.getElementById('lightboxImg').src = src;
-      lb.style.display = 'flex';
-      lb.onclick = () => lb.style.display = 'none';
-    }
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const navbar = document.querySelector(".navbar");
+    
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      hamburger.classList.toggle("active");
+    });
+    
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        hamburger.classList.remove("active");
+      });
+    });
 
-    // Simple testimonials rotation
-    const testimonials = [
-      {text:'“They turned our venue into a dream — everything was perfect. The team was calm, creative and timely.”', author:'Neha & Rohan'},
-      {text:'“Professional, warm and incredibly detail oriented. Our guests kept complimenting the decor.”', author:'Priya & Amit'},
-      {text:'“From concept to execution, Tejas Wedding Creations exceeded expectations.”', author:'Sana & Rahul'}
-    ];
-    let testiIndex = 0;
-    function showTesti(i){
-      const el = document.getElementById('testiText');
-      el.innerHTML = `<p>${testimonials[i].text}</p><div style="font-weight:700">— ${testimonials[i].author}</div>`;
-    }
-    function nextTesti(){ testiIndex=(testiIndex+1)%testimonials.length; showTesti(testiIndex) }
-    function prevTesti(){ testiIndex=(testiIndex-1+testimonials.length)%testimonials.length; showTesti(testiIndex) }
-    setInterval(()=>{ nextTesti() },6000);
-    showTesti(0);
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
 
-    // Contact form (static): opens default mail client with filled content; replace with Formspree or backend when ready
-    function handleSubmit(e){
+    // EmailJS form
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
       e.preventDefault();
-      const f = e.target;
-      const data = new FormData(f);
-      const name = data.get('name');
-      const email = data.get('email');
-      const phone = data.get('phone') || 'N/A';
-      const service = data.get('service');
-      const message = data.get('message');
-      const subject = encodeURIComponent('New booking request from '+name+'');
-      const body = encodeURIComponent(`Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0AMessage: ${message}`);
-      // Opens user's mail client (static fallback)
-      window.location.href = `mailto:hello@tejasweddings.com?subject=${subject}&body=${body}`;
-      // Show a quick thank-you (client still returns to page when mail app opens)
-      alert('Thanks '+name+'! Your request will open in your mail client.\nIf nothing opens, email us at hello@tejasweddings.com');
-    }
+      emailjs.sendForm("service_q4xw0cob", "template_bmvln2p", this).then(
+        function () {
+          document.getElementById("status-message").innerText = "✅ Message sent successfully!";
+          document.getElementById("status-message").style.color = "green";
+          document.getElementById("status-message").style.background = "#e8f5e8";
+          document.getElementById("contact-form").reset();
+        },
+        function (error) {
+          document.getElementById("status-message").innerText = "❌ Failed to send. Please try again later.";
+          document.getElementById("status-message").style.color = "red";
+          document.getElementById("status-message").style.background = "#ffe8e8";
+        }
+      );
+    });
   </script>
 </body>
 </html>
-
-
